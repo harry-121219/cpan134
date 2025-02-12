@@ -5,16 +5,21 @@
 <head>
 
   <title>HTML Forms Example</title>
+  <style>
+    div {
+        border: 2px solid black;
+    }
+  </style>
 
 </head>
 
 
 
 <body>
-
+    <div>
   <form>
-
-
+    <fieldset>
+        <legend>Personal Informartion</legend>
 
     <label for="username">Username:</label>
 
@@ -35,7 +40,7 @@
     <input type="email" id="email" name="email"><br><br>
 
 
-
+</fieldset>
 
 
 
@@ -95,10 +100,12 @@
     <input type="date" id="birthday" name="birthday"><br><br>
 
     <input type = "reset" value="Reset">
+    <input type="submit" value="Submit">
 
 
 
   </form>
+</div>
 
 </body>
 
