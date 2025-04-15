@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>JS Functions & Objects Example</title>
+
+  <style>
+
+    body { font-family: Arial, sans-serif; }
+
+    #user-list { margin-top: 10px; }
+
+    .user-item { margin-bottom: 5px; }
+
+  </style>
+
+</head>
+
+<body>
+
+  <h2>User List</h2>
+
+  <ul id="user-list"></ul>
+
+
+
+  <h3>Add a User</h3>
+
+  <input type="text" id="user-name" placeholder="Enter name">
+
+  <button id="add-user-btn">Add User</button>
+
+  <button id="clear-users-btn">Clear Users</button>
+
+
+  <script>
+
+    // Define an object to manage users
+
+    const app = {
+
+      users: ["Alice", "Bob", "Charlie"], // Initial list
+
+
+
+      // Function to display users on the page
+
+      displayUsers: function() {
+
+        const userList = document.getElementById("user-list");
+
+        userList.innerHTML = ""; // Clear previous content
+
+
+
+        this.users.forEach((user) => {
+
+          const li = document.createElement("li");
+
+          li.className = "user-item";
+
+          li.textContent = user;
+
+          userList.appendChild(li);
+
+        });
+
+      },
+
+    
+
+
+
+      // Function to add a user
+
+      addUser: function() {
+
+        const input = document.getElementById("user-name");
+
+        const name = input.value.trim();
+
+
+
+        if (name) {
+
+          this.users.push(name); // Add to the list
+
+          input.value = ""; // Clear input field
+
+          this.displayUsers(); // Update UI
+
+        } else {
+
+          alert("Please enter a name.");
+
+        }
+
+      }
+      
+};
+
+    
+
+
+
+    // Initialize user list on page load
+
+    app.displayUsers();
+
+
+
+    // Attach event listener to button
+
+    document.getElementById("add-user-btn").addEventListener("click", function() {
+
+      app.addUser();
+
+    }
+    
+);
+
+  </script>
+
+</body>
+
+</html>
+

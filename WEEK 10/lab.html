@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User List</title>
+</head>
+<body>
+  <h1>User List</h1>
+  <input type="text" id="user-input" placeholder="Enter a name">
+  <button id="add-user-btn">Add User</button>
+  <button id="clear-users-btn">Clear Users</button>
+
+  <ul id="user-list"></ul>
+
+  
+  <script>
+    
+const app = {
+  users: ["Harry","Ron","Neville"],  
+
+  
+  displayUsers: function() {
+    const userList = document.getElementById('user-list');
+    userList.innerHTML = ''; 
+    
+    this.users.forEach((user) => {
+      const li = document.createElement('li');
+      li.textContent = user;
+      
+      
+      const removeButton = document.createElement('button');
+      removeButton.textContent = 'Remove';
+      removeButton.addEventListener('click', () => this.removeUser(index));
+
+      li.appendChild(removeButton);
+      userList.appendChild(li);
+    });
+  },
+
+  
+  addUser: function(name) {
+    
+    if (!name.trim()) {
+      alert('Name cannot be empty.');
+      return;
+    }
+    
+    const lowercasedName = name.toLowerCase();
+    if (this.users.some(user => user.toLowerCase() === lowercasedName)) {
+      alert('This user already exists.');
+      return;
+    }
+    
+    
+    this.users.push(name);
+    this.displayUsers();
+  },
+
+  
+  removeUser: function(index) {
+    
+    this.users.splice(index, 1);
+    this.displayUsers();
+  },
+
+ 
+  clearUsers: function() {
+    this.users = [];
+    this.displayUsers();
+  }
+};
+
+
+document.getElementById('add-user-btn').addEventListener('click', () => {
+  const userInput = document.getElementById('user-input').value;
+  app.addUser(userInput);
+  document.getElementById('user-input').value = '';  // Clear input field
+});
+
+
+document.getElementById('clear-users-btn').addEventListener('click', () => {
+  app.clearUsers();
+});
+
+
+app.displayUsers();
+
+  </script>
+</body>
+</html>

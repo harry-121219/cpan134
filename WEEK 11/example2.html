@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+ <meta charset="UTF-8">
+
+ <title>JavaScript Examples</title>
+
+ <style>
+
+  body {
+
+   font-family: sans-serif;
+
+   padding: 20px;
+
+  }
+
+  button {
+
+   margin: 5px 0;
+
+   padding: 10px;
+
+   display: block;
+
+  }
+
+ </style>
+
+</head>
+
+<body>
+
+ <h1>JavaScript Examples</h1>
+
+ <p>Open the console (F12) and click the buttons to see the output.</p>
+
+
+
+ <h2>Arrow Functions</h2>
+
+ <button onclick="runAdd()">1. Add Numbers (3 + 4)</button>
+
+ <button onclick="runLogItems()">2. Log Items in Array</button>
+
+ <button onclick="runCreateUser()">3. Create User Object</button>
+
+
+
+ <h2>Rest Parameters</h2>
+
+ <button onclick="runSum()">1. Sum Numbers (1, 2, 3, 4)</button>
+
+ <button onclick="runLogAll()">2. Log All Arguments</button>
+
+ <button onclick="runDestructure()">3. Destructure Array</button>
+
+
+
+ <h2>Local Storage</h2>
+
+ <button onclick="saveUser()">1. Save Username to Local Storage</button>
+
+ <button onclick="getUser()">2. Get Username from Local Storage</button>
+
+ <button onclick="removeUser()">3. Remove Username from Local Storage</button>
+
+
+
+ <script>
+
+  // Arrow Function Examples
+
+  const add = (a, b) => a + b;
+
+  function runAdd() {
+
+   console.log("Arrow Function - Add:", add(3, 4));
+
+  }
+
+
+
+  const logItems = items => items.forEach(item => console.log("Item:", item));
+
+  function runLogItems() {
+
+   logItems(["apple", "banana", "cherry"]);
+
+  }
+
+
+
+  const createUser = (name, age) => ({ name, age });
+
+  function runCreateUser() {
+
+   console.log("Arrow Function - Create User:", createUser("Alice", 25));
+
+  }
+
+
+
+  // Rest Parameter Examples
+
+  const sum = (...nums) => nums.reduce((total, num) => total + num, 0);
+
+  function runSum() {
+
+   console.log("Rest Params - Sum:", sum(1, 2, 3, 4));
+
+  }
+
+
+
+  const logAll = (...args) => console.log("Rest Params - Args:", args);
+
+  function runLogAll() {
+
+   logAll("hello", 42, true);
+
+  }
+
+
+
+  function runDestructure() {
+
+   const [first, ...rest] = [10, 20, 30, 40];
+
+   console.log("Rest Params - First:", first);
+
+   console.log("Rest Params - Rest:", rest);
+
+  }
+
+
+
+  // Local Storage Examples
+
+  function saveUser() {
+
+   localStorage.setItem("username", "johndoe");
+
+   console.log("Local Storage - Saved Username: johndoe");
+
+  }
+
+
+
+  function getUser() {
+
+   const user = localStorage.getItem("username");
+
+   console.log("Local Storage - Retrieved Username:", user);
+
+  }
+
+
+
+  function removeUser() {
+
+   localStorage.removeItem("username");
+
+   console.log("Local Storage - Username removed");
+
+  }
+
+ </script>
+
+</body>
+
+</html>
+

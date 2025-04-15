@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LAB</title>
+</head>
+<body>
+  <script>
+    const student = {
+    name: "Alice",
+    age: 20,
+    subjects: ["Mathematics", "English"],
+    
+    
+    addSubject(subject) {
+      this.subjects.push(subject);
+    },
+    
+   
+    displayInfo() {
+      console.log(`Name: ${this.name}`);
+      console.log(`Age: ${this.age}`);
+      console.log("Subjects: " + this.subjects.join(", "));
+    }
+  };
+  
+  
+  student.addSubject("Physics");
+  student.displayInfo();
+  
+  
+  function calculateAverage(...scores) {
+    
+    const total = scores.reduce((sum, score) => sum + score, 0);
+    return total / scores.length;
+  }
+  
+  
+  const averageScore = calculateAverage(81,92,78,86);
+  console.log(`Average Score: ${averageScore}`);
+  </script>
+</body>
+</html>

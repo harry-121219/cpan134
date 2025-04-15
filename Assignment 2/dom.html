@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>List Items</title>
+  <style>
+    ul {
+      list-style-type: decimal;
+      padding-left: 18px;
+    }
+    li {
+      padding: 14px 20px;
+      margin: 6px 0;
+      background-color: #271498;
+      border: 1px solid #5ae91d;
+      cursor: pointer;
+    }
+    li:hover {
+      background-color: #b3f31d;
+    }
+  </style>
+</head>
+<body>
+  <ul id="List">
+    <li>First item</li>
+    <li>Second item</li>
+    <li>Third item</li>
+  </ul>
+
+  <script>
+    
+    function generateRandomString(length) {
+      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?';
+      let result = '';
+      for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+      }
+      return result;
+    }
+
+    
+    function attachListItemEvents() {
+      const listItems = document.querySelectorAll('#List li');
+      listItems.forEach(item => {
+        item.addEventListener('click', () => {
+         
+          item.textContent = generateRandomString(10);
+        });
+      });
+    }
+
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      const ul = document.getElementById('List');
+      
+      
+      const newLi = document.createElement('li');
+      newLi.textContent = 'Fourth item';
+      ul.appendChild(newLi);
+
+      
+      attachListItemEvents();
+    });
+  </script>
+</body>
+</html
